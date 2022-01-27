@@ -1,0 +1,121 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+
+body {
+  background-image: url(lsd.jpg);
+  color: white;
+  font-family: monospace;
+  text-align: center;
+}
+marquee {
+  color: white;
+  font-size: 20px;
+  }
+    
+h1 {
+  font-size: 40px;
+  font-family: monospace;
+  text-align: center;
+  color: #5359f7;
+  background-color: #39FF14;
+  border-radius: 50%;
+}
+
+ #oval {
+  animation-name: rainbow;
+  animation-duration: 1.3s;
+  animation-iteration-count: infinite;
+  }
+
+@keyframes rainbow {
+  0% {
+    background-color:#39FF14;
+  }
+  25% {
+    background-color:#fbd253;
+  }
+  50%{
+    background-color: #16f1ff;
+  }
+  75% {
+  background-color: #fd17d5;
+  }
+  100% {
+    background-color: #feff14;
+  }
+}
+
+
+p {
+  font-size: 18px;
+}
+
+div {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 5px;
+    border-radius: 20%
+ }
+  
+  .responsive {
+  width: 90%;
+  height: auto;
+}
+
+.small {
+  width: 15%;
+  height: auto;
+  margin: 2px;
+  position: relative;
+  z-index: 0;
+  transition: .5s;
+}
+
+.small:hover {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.5);
+  background-color: transparent;
+  transition: .1s;
+}
+
+.stamp {
+  width: 176px;
+  height: 62px;
+  margin: 2px;
+  position: relative;
+  z-index: 0;
+  transition: .5s;
+}
+
+.stamp:hover {
+  position: relative;
+  z-index: 1;
+  transform: scale(1.5);
+  background-color: transparent;
+  transition: .1s;
+}
+
+.stamp_collection {
+  /* Optional Paper Background */
+  text-align: center;
+  background-image:
+    -webkit-linear-gradient(0deg, transparent 4em, rgba(255,0,0,.2) 0, transparent 4.1em),
+    -webkit-linear-gradient(rgba(122, 122, 122, 0.3) 2px, transparent 0);
+  background-image:
+    -moz-linear-gradient(0deg, transparent 4em, rgba(255,0,0,.2) 0, transparent 4.1em),
+    -moz-linear-gradient(rgba(122, 122, 122, 0.3) 2px, transparent 0);
+  background-image:
+    -o-linear-gradient(0deg, transparent 4em, rgba(255,0,0,.2) 0, transparent 4.1em),
+    -o-linear-gradient(rgba(122, 122, 122, 0.3) 2px, transparent 0);
+  background-image:
+    -ms-linear-gradient(0deg, transparent 4em, rgba(255,0,0,.2) 0, transparent 4.1em),
+    -ms-linear-gradient(rgba(122, 122, 122, 0.3) 2px, transparent 0);
+  -webkit-background-size: 100% 2em;
+  -moz-background-size: 100% 2em;
+
+
+
+
+
