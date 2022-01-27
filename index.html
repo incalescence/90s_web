@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<!-- Coded with luv from me xoxo-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♡luvfromme♡</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    
+    <!-- Icon -->
+    <link href="https://luvfromme.neocities.org/favicon.ico" rel="icon" type="image/x-icon">
+    <!-- Icon  END-->
+    
+    <!-- SCM Music Player https://www.scmplayer.net -->
+    <script type="text/javascript" src="https://www.scmplayer.net/script.js" data-config="{'skin':'skins/scmPurple/skin.css','volume':50,'autoplay':true,'shuffle':false,'repeat':1,'placement':'top','showplaylist':false,'playlist':[{'title':'Charli XCX - Track10 [Official Audio]','url':'https://www.youtube.com/watch?v=Rj6dwEBmBJA'}]}" >
+    </script>
+    <!--SCM Music Player script END-->
+    
+    <!-- Google Search Console -->
+    <meta name="google-site-verification" content="sjXUMB95XJQQQlV3dekMbomDEMF1KU9UWp-_UGqgrpQ" />
+    <!-- Google Search Console END-->
+    
+    <!-- Sparkly cursor-->
+    <script type="text/javascript">
+    // <![CDATA[
+    var colour= "random"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+    var sparkles= 50;
+    
+    /****************************
+    *  Tinkerbell Magic Sparkle *
+    *(c)2005-13 mf2fm web-design*
+    *  http://www.mf2fm.com/rv  *
+    * DON'T EDIT BELOW THIS BOX *
+    ****************************/
+    var x=ox=400;
+    var y=oy=300;
+    var swide=800;
+    var shigh=600;
+    var sleft=sdown=0;
+    var tiny=new Array();
+    var star=new Array();
+    var starv=new Array();
+    var starx=new Array();
+    var stary=new Array();
+    var tinyx=new Array();
+    var tinyy=new Array();
+    var tinyv=new Array();
+    
+    window.onload=function() { if (document.getElementById) {
+      var i, rats, rlef, rdow;
+      for (var i=0; i<sparkles; i++) {
+        var rats=createDiv(3, 3);
+        rats.style.visibility="hidden";
+        rats.style.zIndex="999";
+        document.body.appendChild(tiny[i]=rats);
+        starv[i]=0;
+        tinyv[i]=0;
+        var rats=createDiv(5, 5);
+        rats.style.backgroundColor="transparent";
+        rats.style.visibility="hidden";
+        rats.style.zIndex="999";
+        var rlef=createDiv(1, 5);
+        var rdow=createDiv(5, 1);
+        rats.appendChild(rlef);
+        rats.appendChild(rdow);
+        rlef.style.top="2px";
+        rlef.style.left="0px";
+        rdow.style.top="0px";
+        rdow.style.left="2px";
+        document.body.appendChild(star[i]=rats);
+      }
+      set_width();
+      sparkle();
+    }}
+    
+    function sparkle() {
+      var c;
+      if (Math.abs(x-ox)>1 || Math.abs(y-oy)>1) {
+        ox=x;
+        oy=y;
+        for (c=0; c<sparkles; c++) if (!starv[c]) {
+          star[c].style.left=(starx[c]=x)+"px";
+          star[c].style.top=(stary[c]=y+1)+"px";
+          star[c].style.clip="rect(0px, 5px, 5px, 0px)";
+          star[c].childNodes[0].style.backgroundColor=star[c].childNodes[1].style.backgroundColor=(colour=="random")?newColour():colour;
+          star[c].style.visibility="visible";
+          starv[c]=50;
+          break;
+        }
+      }
+      for (c=0; c<sparkles; c++) {
+        if (starv[c]) update_star(c);
+        if (tinyv[c]) update_tiny(c);
+      }
+      setTimeout("sparkle()", 40);
+    }
+    
+    function update_star(i) {
+      if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
+      if (starv[i]) {
+        stary[i]+=1+Math.random()*3;
+        starx[i]+=(i%5-2)/5;
+        if (stary[i]<shigh+sdown) {
+          star[i].style.top=stary[i]+"px";
+          star[i].style.left=starx[i]+"px";
+        }
+        else {
+          star[i].style.visibility="hidden";
+          starv[i]=0;
+          return;
+        }
+      }
+      else {
+        tinyv[i]=50;
+        tiny[i].style.top=(tinyy[i]=stary[i])+"px";
+        tiny[i].style.left=(tinyx[i]=starx[i])+"px";
+        tiny[i].style.width="2px";
+        tiny[i].style.height="2px";
+        tiny[i].style.backgroundColor=star[i].childNodes[0].style.backgroundColor;
+        star[i].style.visibility="hidden";
+        tiny[i].style.visibility="visible"
+      }
+    }
+    
+    function update_tiny(i) {
+      if (--tinyv[i]==25) {
+        tiny[i].style.width="1px";
+        tiny[i].style.height="1px";
+      }
+      if (tinyv[i]) {
+        tinyy[i]+=1+Math.random()*3;
+        tinyx[i]+=(i%5-2)/5;
+        if (tinyy[i]<shigh+sdown) {
+          tiny[i].style.top=tinyy[i]+"px";
+          tiny[i].style.left=tinyx[i]+"px";
+        }
+        else {
+          tiny[i].style.visibility="hidden";
+          tinyv[i]=0;
+          return;
+        }
+      }
+      else tiny[i].style.visibility="hidden";
+    }
+    
+    document.onmousemove=mouse;
+    function mouse(e) {
+      if (e) {
+        y=e.pageY;
+        x=e.pageX;
+      }
+      else {
+        set_scroll();
+        y=event.y+sdown;
+        x=event.x+sleft;
+      }
+    }
+    
+    window.onscroll=set_scroll;
+    function set_scroll() {
+      if (typeof(self.pageYOffset)=='number') {
+        sdown=self.pageYOffset;
+        sleft=self.pageXOffset;
+      }
+      else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+        sdown=document.body.scrollTop;
+        sleft=document.body.scrollLeft;
+      }
+      else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+        sleft=document.documentElement.scrollLeft;
+        sdown=document.documentElement.scrollTop;
+      }
+      else {
+        sdown=0;
+        sleft=0;
+      }
+    }
+    
+    window.onresize=set_width;
+    function set_width() {
+      var sw_min=999999;
+      var sh_min=999999;
+      if (document.documentElement && document.documentElement.clientWidth) {
+        if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+        if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+      }
+      if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+        if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+        if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+      }
+      if (document.body.clientWidth) {
+        if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+        if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+      }
+      if (sw_min==999999 || sh_min==999999) {
+        sw_min=800;
+        sh_min=600;
+      }
+      swide=sw_min;
+      shigh=sh_min;
+    }
+    
+    function createDiv(height, width) {
+      var div=document.createElement("div");
+      div.style.position="absolute";
+      div.style.height=height+"px";
+      div.style.width=width+"px";
+      div.style.overflow="hidden";
+      return (div);
+    }
+    
+    function newColour() {
+      var c=new Array();
+      c[0]=255;
+      c[1]=Math.floor(Math.random()*256);
+      c[2]=Math.floor(Math.random()*(256-c[1]/2));
+      c.sort(function(){return (0.5 - Math.random());});
+      return ("rgb("+c[0]+", "+c[1]+", "+c[2]+")");
+    }
+    // ]]>
+    </script>
+  </head>
+  
+  
+  <body> 
+    <!-- Sparkle Shower -->
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=21 height=655 style='position:absolute; left:30%; top:60px; width:15; height:655px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=1 scrolldelay=7 height=555 style='position:absolute; left:13%; top:69px; width:15; height:555px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=7 height=570 style='position:absolute; left:54%; top:18px; width:15; height:570px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=50 height=514 style='position:absolute; left:60%; top:152px; width:15; height:514px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=18 height=591 style='position:absolute; left:17%; top:180px; width:15; height:591px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=34 height=598 style='position:absolute; left:28%; top:50px; width:15; height:598px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=35 height=520 style='position:absolute; left:89%; top:86px; width:15; height:520px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=4 scrolldelay=10 height=624 style='position:absolute; left:71%; top:170px; width:15; height:624px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=29 height=507 style='position:absolute; left:37%; top:24px; width:15; height:507px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=42 height=665 style='position:absolute; left:21%; top:200px; width:15; height:665px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=19 height=676 style='position:absolute; left:63%; top:168px; width:15; height:676px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=48 height=651 style='position:absolute; left:31%; top:185px; width:15; height:651px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=4 scrolldelay=9 height=577 style='position:absolute; left:22%; top:63px; width:15; height:577px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=1 scrolldelay=29 height=611 style='position:absolute; left:76%; top:26px; width:15; height:611px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=15 height=537 style='position:absolute; left:16%; top:64px; width:15; height:537px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=6 height=688 style='position:absolute; left:44%; top:103px; width:15; height:688px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=43 height=578 style='position:absolute; left:87%; top:2px; width:15; height:578px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=19 height=624 style='position:absolute; left:47%; top:148px; width:15; height:624px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=26 height=655 style='position:absolute; left:25%; top:98px; width:15; height:655px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=25 height=505 style='position:absolute; left:69%; top:11px; width:15; height:505px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=3 scrolldelay=21 height=634 style='position:absolute; left:80%; top:167px; width:15; height:634px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=3 scrolldelay=13 height=553 style='position:absolute; left:26%; top:57px; width:15; height:553px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=20 height=554 style='position:absolute; left:61%; top:103px; width:15; height:554px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=6 scrolldelay=37 height=696 style='position:absolute; left:31%; top:70px; width:15; height:696px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=8 height=600 style='position:absolute; left:37%; top:137px; width:15; height:600px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=32 height=549 style='position:absolute; left:11%; top:198px; width:15; height:549px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=5 scrolldelay=36 height=571 style='position:absolute; left:65%; top:197px; width:15; height:571px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=3 scrolldelay=48 height=567 style='position:absolute; left:81%; top:164px; width:15; height:567px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=2 scrolldelay=26 height=677 style='position:absolute; left:77%; top:179px; width:15; height:677px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <marquee behavior=scroll direction=down scrollamount=3 scrolldelay=39 height=582 style='position:absolute; left:48%; top:3px; width:15; height:582px;'><img src=http://dl8.glitter-graphics.net/pub/132/132648ycu11d98k3.gif border=0></marquee>
+    <!-- Sparkle Shower END --> 
+    
+    <!-- Bubble Bath -->
+    <script type="text/javascript">
+    // <![CDATA[
+    var colours=new Array("#a6f", "#60f", "#60f", "#a6f", "#ccc"); // colours for top, right, bottom and left borders and background of bubbles
+    var bubbles=66; // how many bubbles are moving at any given time
+    var over_or_under="over"; // set to "over" for bubbles to always be on top, or "under" to allow them to float behind other objects
+    
+    /****************************
+    *   JavaScript Bubble Bath  *
+    *(c)2010-13 mf2fm web-design*
+    *  http://www.mf2fm.com/rv  *
+    * DON'T EDIT BELOW THIS BOX *
+    ****************************/
+    
+    var swide=800;
+    var shigh=600;
+    var bubb=new Array();
+    var bubbx=new Array();
+    var bubby=new Array();
+    var bubbs=new Array();
+    var boddie;
+    var ie_version=(navigator.appVersion.indexOf("MSIE")!=-1)?parseFloat(navigator.appVersion.split("MSIE")[1]):false;
+    
+    function addLoadEvent(funky) {
+      var oldonload=window.onload;
+      if (typeof(oldonload)!='function') window.onload=funky;
+      else window.onload=function() {
+        if (oldonload) oldonload();
+        funky();
+      }
+    }
+    
+    addLoadEvent(bubba);
+    
+    function bubba() { if (document.getElementById) {
+      var i, rats, div;
+      boddie=document.createElement("div");
+      boddie.style.position="fixed";
+      boddie.style.top="0px";
+      boddie.style.left="0px";
+      boddie.style.overflow="visible";
+      boddie.style.width="1px";
+      boddie.style.height="1px";
+      boddie.style.backgroundColor="transparent";
+      boddie.style.zIndex="0";
+      document.body.appendChild(boddie);
+      set_width();
+      for (i=0; i<bubbles; i++) {
+        rats=createDiv("3px", "3px");
+    
+    	div=createDiv("auto", "auto");
+        rats.appendChild(div);
+    	div=div.style;
+        div.top="1px";
+        div.left="0px";
+    	div.bottom="1px";
+    	div.right="0px";
+    	div.borderLeft="1px solid "+colours[3];
+    	div.borderRight="1px solid "+colours[1];
+    
+        div=createDiv("auto", "auto");
+    	rats.appendChild(div);
+    	div=div.style;
+        div.top="0px";
+        div.left="1px";
+    	div.right="1px";
+    	div.bottom="0px"
+    	div.borderTop="1px solid "+colours[0];
+    	div.borderBottom="1px solid "+colours[2];
+    
+    	div=createDiv("auto", "auto");
+    	rats.appendChild(div);
+    	div=div.style;
+    	div.left="1px";
+    	div.right="1px";
+        div.bottom="1px";
+    	div.top="1px";
+    	div.backgroundColor=colours[4];
+        if (ie_version && ie_version<10) div.filter="alpha(opacity=50)";
+        else div.opacity=0.5;
+    
+        boddie.appendChild(rats);
+    	bubb[i]=rats.style;
+    	bubb[i].zIndex=(over_or_under=="over")?"1001":"0";
+      }
+      bubble();
+    }}
+    
+    function bubble() {
+      var c;
+      for (c=0; c<bubbles; c++) if (!bubby[c] && Math.random()<0.333) {
+        bubb[c].left=(bubbx[c]=Math.floor(swide/6+Math.random()*swide/1.5)-10)+"px";
+        bubb[c].top=(bubby[c]=shigh)+"px";
+        bubb[c].width="3px";
+    	bubb[c].height="3px"
+    	bubb[c].visibility="visible";
+    	bubbs[c]=3;
+        break;
+      }
+      for (c=0; c<bubbles; c++) if (bubby[c]) update_bubb(c);
+      setTimeout("bubble()", 40);
+    }
+    
+    function update_bubb(i) {
+      if (bubby[i]) {
+        bubby[i]-=bubbs[i]/2+i%2;
+        bubbx[i]+=(i%5-2)/5;
+        if (bubby[i]>0 && bubbx[i]>0 && bubbx[i]<swide) {
+    	  if (Math.random()<bubbs[i]/shigh*2 && bubbs[i]++<8) {
+    		bubb[i].width=bubbs[i]+"px";
+    		bubb[i].height=bubbs[i]+"px";
+    	  }
+          bubb[i].top=bubby[i]+"px";
+          bubb[i].left=bubbx[i]+"px";
+        }
+        else {
+          bubb[i].visibility="hidden";
+          bubby[i]=0;
+          return;
+        }
+      }
+    }
+    
+    window.onresize=set_width;
+    function set_width() {
+      var sw_min=999999;
+      var sh_min=999999;
+      if (document.documentElement && document.documentElement.clientWidth) {
+        if (document.documentElement.clientWidth>0) sw_min=document.documentElement.clientWidth;
+        if (document.documentElement.clientHeight>0) sh_min=document.documentElement.clientHeight;
+      }
+      if (typeof(self.innerWidth)=='number' && self.innerWidth) {
+        if (self.innerWidth>0 && self.innerWidth<sw_min) sw_min=self.innerWidth;
+        if (self.innerHeight>0 && self.innerHeight<sh_min) sh_min=self.innerHeight;
+      }
+      if (document.body.clientWidth) {
+        if (document.body.clientWidth>0 && document.body.clientWidth<sw_min) sw_min=document.body.clientWidth;
+        if (document.body.clientHeight>0 && document.body.clientHeight<sh_min) sh_min=document.body.clientHeight;
+      }
+      if (sw_min==999999 || sh_min==999999) {
+        sw_min=800;
+        sh_min=600;
+      }
+      swide=sw_min;
+      shigh=sh_min;
+    }
+    
+    function createDiv(height, width) {
+      var div=document.createElement("div");
+      div.style.position="absolute";
+      div.style.height=height;
+      div.style.width=width;
+      div.style.overflow="hidden";
+      div.style.backgroundColor="transparent";
+      return (div);
+    }
+    // ]]>
+    </script>
+    <!-- Bubble Bath END -->
+    
+    <!-- Roses 
+    <a href="https://www.glitter-graphics.com"><img src="http://dl9.glitter-graphics.net/pub/123/123919nqbdnpq35j.gif" width=80% height=60 border=0></a>
+    Roses END -->
+    
+    <!-- Hit Counter -->
+    <script type="text/javascript" src="//counter.websiteout.net/js/28/15/503/1"></script>
+    
+    <!-- Marquee -->
+    <marquee> Welcome to my brain dump bitches! This site is best viewed on desktop!</marquee>
+    
+    <!-- Title Banner -->
+    <img class="responsive" src="/title.png">
+    
+    <!-- Oval Header -->
+    <h1 id = "oval" style="font-size:2vw;" >♡I'm so glad you're here♡</h1>
+    
+    <!-- Sheep -->
+    <a href = "https://luvfromme.neocities.org/button.html" > <img class= "small" src="/sheep.gif"> </a>
+    
+    <!-- Line -->
+    <hr>
+    
+    <!-- Bio -->
+    <p> I'm currently still working on this site.</p>
+    <p>Feel free to leave a message below and add my button to your site. Let's be friends. Link your page below so I can add your button too!</p>
+    <!-- Bio End-->
+    
+    <!-- Button Expanding on Click -->
+    <p><a href= "https://neocities.org/site/luvfromme"> <img class="stamp" src="/luvfromme.gif"></a></p>
+       
+    <p><textarea name="My Button"><img style="width: 88px; height: 31px" src="https://luvfromme.neocities.org/luvfromme.gif"></a>" cols="20" rows="10" minlength="10" maxlength="500" required><a href= "https://luvfromme.neocities.org/"><img style="width: 88px; height: 31px" src="https://luvfromme.neocities.org/luvfromme.gif"></a></textarea></p>
+    
+    <!-- Spinning Heart Border -->
+    <img class="responsive" src="/heart.gif">
+    
+    <!-- CBOX -->
+    <iframe src="https://www3.cbox.ws/box/?boxid=3506007&boxtag=f2ykHF" width="55%" height="450" allowtransparency="yes" allow="autoplay" frameborder="0" margin-height="0" margin-width="0" scrolling="auto"></iframe>	
+    <!-- CBOX End-->
+    
+    <!-- Pinterest Board -->
+    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="340" data-pin-scale-width="80" href="https://www.pinterest.com.au/shellegg/90s-web/"></a>
+    <script async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    <!-- Pinterest Board END -->
+    
+    <!-- Flag Counter -->
+    <a href="https://www.worldflagcounter.com/details/hWz"><img src="https://www.worldflagcounter.com/hWz/" alt="Flag Counter"></a> 
+    
+    <!-- Break -->
+    <br>
+    
+    <!-- Flame Thanks with angels-->
+    <img style="width: 10%; transform: scaleX(-1);" src="/angel.gif">
+    <img src="/thanks.gif">
+    <img style="width: 10%" src="/angel.gif">
+    <!-- Flame Thanks with angels END-->
+    
+    <!-- Footer -->
+    <footer> designed and coded by the power of luv from me xox! </footer>
+    <footer> Copyright © 2023 luvfromme.neocities.org </footer>    
+    <!-- Footer END-->
+    
+    <!-- Break -->
+    <br>
+    
+    <!-- Rainbow -->
+    <img src="/rainbow.gif">
+  </body>  
+  
+</html>
