@@ -7,6 +7,13 @@
   <img src="https://github.com/incalescence/90s_web/blob/main/90sdemo.png" width="400">
 </p>
 
+# Site Functions
+- Landing Page
+- Guestbook 
+- Sticker/Badge Page
+- Embeded code so visitors can pin my sticker on their pages
+- Visual moodboard
+
 # Tools used 
 - Microsoft Notepad ;)
 - HTML/CSS
